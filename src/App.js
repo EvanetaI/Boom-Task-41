@@ -4,6 +4,7 @@ import Document from "./Document";
 
 function App() {
   const [data, setData] = useState(null);
+  //const [btnState, setBtn] = useState(false);
 
   useEffect(() => {
    fetch("https://jaspervdj.be/lorem-markdownum/markdown.txt")
@@ -11,6 +12,13 @@ function App() {
   .then((data) => setData(data));
   },[]);
 
+  // document.addEventListener("wheel",(e)=>{
+  //   console.log("wheel")
+  //   const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+  //   if (bottom) { 
+  //     setBtn(bottom)
+  //   }
+  // })
 
   return (
     <div className="App">
@@ -23,7 +31,7 @@ function App() {
       <div className="container is-fullhd">
         <div className="notification">
           Edit the <code>./src</code> folder to add components.
-          {data ? <Document title="Terms and Conditions" content={data}/> : "" }
+          <Document title="Terms and Conditions" content={data}/>
         </div>
       </div>
     </div>
